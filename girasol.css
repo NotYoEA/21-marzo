@@ -36,7 +36,7 @@ body {
 
 .message {
     position: absolute;
-    top: 10%;
+    top: 28%; /* Bajado para equilibrar con la flor más alta */
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Arial', sans-serif;
@@ -74,7 +74,7 @@ body {
 
 .flower_stem {
     width: 2vmin;
-    height: 65vmin;
+    height: 85vmin; /* Tallo mucho más largo */
     background-image: var(--line-color);
     border-radius: 4vmin;
     animation-delay: 0.3s;
@@ -97,7 +97,7 @@ body {
     position: absolute;
     left: 50%;
     z-index: 3;
-    bottom: 55vmin;
+    bottom: 75vmin; /* Ajustado para el tallo más largo */
     transform: translateX(-50%);
     width: 7vmin;
     height: 20vmin;
@@ -129,7 +129,7 @@ body {
 .flower_leaf {
     position: absolute;
     left: 60%;
-    bottom: 18vmin;
+    bottom: 38vmin; /* Ajustado para el tallo más largo */
     transform: translateX(-45%) rotate(80deg);
     width: 7vmin;
     height: 17vmin;
@@ -140,13 +140,19 @@ body {
 }
 
 .flower_leaf-1 {
-    bottom: 18vmin;
+    bottom: 38vmin; /* Ajustado para el tallo más largo */
     transform: translateX(-45%) rotate(80deg);
 }
 
 .flower_leaf-2 {
-    bottom: 23vmin;
+    bottom: 48vmin; /* Ajustado para el tallo más largo */
     transform: translateX(-55%) rotate(-80deg);
+}
+
+/* Añadimos una hoja más arriba */
+.flower_leaf-3 {
+    bottom: 60vmin;
+    transform: translateX(-45%) rotate(80deg);
 }
 
 .flower_light {
@@ -172,6 +178,11 @@ body {
 .flower_light-6 { left: -4vmin; animation-delay: 3s; }
 .flower_light-7 { left: 3vmin; animation-delay: 2s; }
 .flower_light-8 { left: -6vmin; animation-delay: 3.5s; }
+
+/* Agregar más luces para llenar el espacio */
+.flower_light-9 { left: 5vmin; bottom: 90vmin; animation-delay: 2.2s; }
+.flower_light-10 { left: -3vmin; bottom: 100vmin; animation-delay: 1.8s; }
+.flower_light-11 { left: 2vmin; bottom: 110vmin; animation-delay: 0.7s; }
 
 .light {
     position: absolute;
@@ -200,6 +211,12 @@ body {
 .light-10 { left: 95vw; animation-delay: 3.5s; } /* Cambiado de vmax a vw */
 .light-11 { left: 75vw; animation-delay: 3s; } /* Cambiado de vmax a vw */
 .light-12 { left: 85vw; animation-delay: 0.5s; } /* Cambiado de vmax a vw */
+
+/* Añadir más luces para llenar el espacio vacío */
+.light-13 { left: 30vw; bottom: 50vh; animation-delay: 1.2s; }
+.light-14 { left: 50vw; bottom: 60vh; animation-delay: 2.7s; }
+.light-15 { left: 65vw; bottom: 40vh; animation-delay: 0.8s; }
+.light-16 { left: 15vw; bottom: 45vh; animation-delay: 3.2s; }
 
 @keyframes open-flower-leaves {
     0% {
@@ -300,16 +317,28 @@ body {
     }
     
     .flower_stem {
-        height: 55vmin; /* Tallo ligeramente más corto en móviles */
+        height: 75vmin; /* Tallo más largo en móviles, pero algo más corto que en desktop */
     }
     
     .flower_petal {
-        bottom: 45vmin; /* Ajustar posición de pétalos */
+        bottom: 65vmin; /* Ajustar posición de pétalos */
     }
     
     .flower_center {
         width: 18vmin; /* Centro de flor ligeramente más pequeño */
         height: 18vmin;
+    }
+    
+    .flower_leaf-1 {
+        bottom: 30vmin; /* Ajustar posición de hojas */
+    }
+    
+    .flower_leaf-2 {
+        bottom: 40vmin; /* Ajustar posición de hojas */
+    }
+    
+    .flower_leaf-3 {
+        bottom: 55vmin; /* Ajustar posición de hojas */
     }
     
     /* Asegurar que las luces no se salgan de la pantalla */
@@ -334,31 +363,63 @@ body {
             opacity: 0;
         }
     }
+    
+    .message {
+        top: 20%; /* Reajustar mensaje para móviles */
+    }
 }
 
 /* Optimización para dispositivos muy pequeños */
 @media (max-width: 375px) {
     .message {
         font-size: 1.5rem; /* Texto aún más pequeño */
-        top: 5%; /* Posicionar mensaje más arriba */
+        top: 15%; /* Posicionar mensaje más arriba */
     }
     
     .flower_stem {
-        height: 50vmin; /* Tallo más corto */
+        height: 70vmin; /* Tallo más corto para dispositivos pequeños */
+    }
+    
+    .flower_petal {
+        bottom: 60vmin;
+    }
+    
+    .flower_leaf-1 {
+        bottom: 25vmin;
+    }
+    
+    .flower_leaf-2 {
+        bottom: 35vmin;
+    }
+    
+    .flower_leaf-3 {
+        bottom: 50vmin;
     }
 }
 
 /* Agregar soporte para orientación landscape */
 @media (max-height: 500px) and (orientation: landscape) {
     .message {
-        top: 5%;
+        top: 10%;
     }
     
     .flower_stem {
-        height: 45vmin;
+        height: 55vmin;
     }
     
     .flower_petal {
-        bottom: 35vmin;
+        bottom: 45vmin;
+    }
+    
+    .flower_leaf-1 {
+        bottom: 20vmin;
+    }
+    
+    .flower_leaf-2 {
+        bottom: 25vmin;
+    }
+    
+    .flower_leaf-3 {
+        display: none; /* Ocultar tercera hoja en modo landscape para evitar solapamientos */
     }
 }
